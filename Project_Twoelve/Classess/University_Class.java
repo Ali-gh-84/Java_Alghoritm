@@ -12,11 +12,11 @@ public class University_Class {
     private HashMap<String, Integer> time_classes = new HashMap<>();
     private HashMap<String, ArrayList<String>> student_university = new HashMap<>();
 
-    public ArrayList<String> get_classess_name(){
+    public ArrayList<String> get_classess_name() {
         return classess_name;
     }
 
-    public HashMap<String, ArrayList<String>> get_student_university(){
+    public HashMap<String, ArrayList<String>> get_student_university() {
         return student_university;
     }
 

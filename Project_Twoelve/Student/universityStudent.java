@@ -1,6 +1,7 @@
 package Project_Twoelve.Student;
 
 import java.util.*;
+
 import Project_Twoelve.Classess.University_Class;
 
 public class universityStudent {
@@ -15,7 +16,10 @@ public class universityStudent {
 
     private ArrayList<String> full_name_student = new ArrayList<>();
     private HashMap<String, Integer> name_id_student = new HashMap<>();
-    private HashMap<String, ArrayList<String>> set_unit = new HashMap<>();
+    private ArrayList<String> term1 = new ArrayList<>();
+    private ArrayList<String> term2 = new ArrayList<>();
+    private HashMap<String, ArrayList<String>> set_unit1 = new HashMap<>();
+    private HashMap<String, ArrayList<String>> set_unit2 = new HashMap<>();
     private ArrayList<String> unit = new ArrayList<>() {
         {
             add("Mathes");
@@ -39,9 +43,15 @@ public class universityStudent {
         return name_id_student;
     }
 
-    public HashMap<String, ArrayList<String>> get_set_unit() {
-        return set_unit;
+    public HashMap<String, ArrayList<String>> get_set_unit1() {
+        return set_unit1;
     }
+
+    public HashMap<String, ArrayList<String>> get_set_unit2() {
+        return set_unit2;
+    }
+
+    public int chooseTerm;
 
     public void get_name_student() {
 
@@ -62,6 +72,16 @@ public class universityStudent {
             System.out.println("\tYour Years is Largest than now!");
             return;
         }
+
+        System.out.println("\tPlease Enter Your Term :");
+        System.out.print("\t-> 1) Term1 " + "-> 2) Term2 : ");
+        chooseTerm = scanner.nextInt();
+
+        if (chooseTerm != 1 && chooseTerm != 2) {
+            System.out.println("\tPleasse Enter True Number !");
+            return;
+        }
+        scanner.nextLine();
 
         clas2.show_name_class();
         System.out.println();
@@ -87,6 +107,13 @@ public class universityStudent {
             full_name_student.add(name_student);
             students.add(name_student);
             clas2.get_student_university().put(choose_university, students);
+
+            if (chooseTerm == 1) {
+                term1.add(name_student);
+            } else if (chooseTerm == 2) {
+                term2.add(name_student);
+            }
+
 
             System.out.println("\tStudent added successfully");
         } else {
@@ -165,46 +192,125 @@ public class universityStudent {
             return;
         }
 
-        ArrayList<String> lessons = set_unit.getOrDefault(find_name, new ArrayList<>());
+        if (chooseTerm == 1) {
 
-        while (lessons.size() < 4) {
-            System.out.print("\tPlease Enter Name Of Lessons For Choose Unit : ");
-            String choose_lesson = scanner.nextLine();
+            ArrayList<String> lessons = set_unit1.getOrDefault(find_name, new ArrayList<>());
 
-            if (unit.contains(choose_lesson)) {
-                if (!lessons.contains(choose_lesson)) {
-                    lessons.add(choose_lesson);
-                    set_unit.put(find_name, lessons);
-                    System.out.println("\tYou Choose " + choose_lesson + " lesson.");
-                    return;
+            while (lessons.size() < 4) {
+                System.out.print("\tPlease Enter Name Of Lessons For Choose Unit : ");
+                String choose_lesson = scanner.nextLine();
+
+                if (unit.contains(choose_lesson)) {
+                    if (!lessons.contains(choose_lesson)) {
+                        lessons.add(choose_lesson);
+                        set_unit1.put(find_name, lessons);
+                        System.out.println("\tYou Choose " + choose_lesson + " lesson.");
+                        return;
+                    } else {
+                        System.out.println("\tYou Can Not Choose Them!");
+                    }
                 } else {
-                    System.out.println("\tYou Can Not Choose Them!");
+                    System.out.println("\tThis Lesson Isnot True!");
                 }
-            } else {
-                System.out.println("\tThis Lesson Isnot True!");
+                if (lessons.size() == 4) {
+                    System.out.println("\tYour Choose is Full!");
+                    return;
+                }
             }
-            if (lessons.size() == 4) {
-                System.out.println("\tYour Choose is Full!");
-                return;
+        }
+        if (chooseTerm == 2) {
+
+            ArrayList<String> lessons = set_unit2.getOrDefault(find_name, new ArrayList<>());
+
+            while (lessons.size() < 4) {
+                System.out.print("\tPlease Enter Name Of Lessons For Choose Unit : ");
+                String choose_lesson = scanner.nextLine();
+
+                if (unit.contains(choose_lesson)) {
+                    if (!lessons.contains(choose_lesson)) {
+                        lessons.add(choose_lesson);
+                        set_unit2.put(find_name, lessons);
+                        System.out.println("\tYou Choose " + choose_lesson + " lesson.");
+                        return;
+                    } else {
+                        System.out.println("\tYou Can Not Choose Them!");
+                    }
+                } else {
+                    System.out.println("\tThis Lesson Isnot True!");
+                }
+                if (lessons.size() == 4) {
+                    System.out.println("\tYour Choose is Full!");
+                    return;
+                }
             }
         }
     }
 
     public void show_stuednt_unit() {
 
+        int count1 = 1;
         int count2 = 1;
+        int count3 = 1;
 
-        System.out.println("\tList Student and Unit as follows :");
+        System.out.println("\tPlease Choose Term For See Student and Unit");
+        System.out.print("\t-> 1) Term1" + " -> 2) Term2 : ");
+        int chooseT = scanner.nextInt();
 
-        for (Map.Entry<String, ArrayList<String>> show_all_students_unit : set_unit.entrySet()) {
-            System.out
-                    .print("\t" + count2 + ") " + show_all_students_unit.getKey() + " Unit : ");
-            for (var all_lessons : show_all_students_unit.getValue()) {
-                System.out.print(
-                        all_lessons + " . ");
+        System.out.println();
+
+        if (chooseT != 1 && chooseT != 2) {
+            System.out.println("\tPleasse Enter True Number !");
+            return;
+        }
+
+        System.out.println();
+
+        if (chooseT == 1) {
+            System.out.println("\tList Student Term One Is :");
+            for (String t1 : term1) {
+                System.out.println("\t" + count1 + ") " + t1 + " in Term One.");
+                System.out.println();
+                System.out.println("\tList Student and Unit as follows :");
+
+                for (Map.Entry<String, ArrayList<String>> show_all_students_unit : set_unit1.entrySet()) {
+                    System.out
+                            .print("\t" + count1 + ") " + show_all_students_unit.getKey() + " Unit : ");
+                    for (var all_lessons : show_all_students_unit.getValue()) {
+                        System.out.print(
+                                all_lessons + " . ");
+                    }
+                    System.out.println();
+                    count1 += 1;
+                }
+                for (Map.Entry<String, ArrayList<String>> size_lesson : set_unit1.entrySet()) {
+                    int size = size_lesson.getValue().size();
+                    System.out.println("\t" + count3 + ") " + "You Have " + (size * 5) + " Units.");
+                }
             }
-            System.out.println();
-            count2 += 1;
+        }
+        if (chooseT == 2) {
+            System.out.println("\tList Student Term One Is :");
+            for (String t2 : term2) {
+                System.out.println("\t" + count2 + ") " + t2 + " in Term Two.");
+                System.out.println();
+                System.out.println("\tList Student and Unit as follows :");
+
+                for (Map.Entry<String, ArrayList<String>> show_all_students_unit : set_unit2.entrySet()) {
+                    System.out
+                            .print("\t" + count2 + ") " + show_all_students_unit.getKey() + " Unit : ");
+                    for (var all_lessons : show_all_students_unit.getValue()) {
+                        System.out.print(
+                                all_lessons + " . ");
+                    }
+                    System.out.println();
+                    count2 += 1;
+                }
+                for (Map.Entry<String, ArrayList<String>> size_lesson : set_unit2.entrySet()) {
+                    int size = size_lesson.getValue().size();
+                    System.out.println("\t" + count3 + ") " + "You Have " + (size * 5) + " Units.");
+                }
+            }
         }
     }
 }
+
