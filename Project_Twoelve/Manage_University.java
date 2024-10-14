@@ -2,8 +2,8 @@ package Project_Twoelve;
 
 import java.util.*;
 import Project_Twoelve.Classess.University_Class;
-import Project_Twoelve.Semester.University_Semester;
-import Project_Twoelve.Student.University_Student;
+import Project_Twoelve.Semester.universitySemester;
+import Project_Twoelve.Student.universityStudent;
 
 
 public class Manage_University {
@@ -11,8 +11,8 @@ public class Manage_University {
     public static void main(String[] args) {
 
         University_Class clas2 = new University_Class();
-        University_Student clas = new University_Student(clas2);
-        University_Semester term = new University_Semester(clas);
+        universityStudent clas = new universityStudent(clas2);
+        universitySemester term = new universitySemester(clas);
 
         Scanner scanner = new Scanner(System.in);
 
