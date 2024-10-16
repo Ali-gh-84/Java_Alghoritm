@@ -55,6 +55,6 @@ public class Student {
 
         term.validStudent(student);
 
-        System.out.println("\t -> " + getfullName() + " in year : " + term.getyear() + " in HalfYear : " + term.gethalfYear() + " " + term.classess);
+        System.out.println("\t -> " + getfullName() + " in year : " + term.getyear() + " in HalfYear : " + term.gethalfYear() + " in Classess : " + term.classess + " Count Units : " + term.unitsLesson);
     }
 }
