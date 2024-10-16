@@ -90,14 +90,12 @@ public class Term {
             }
 
             if (selectedKlass != null) {
-                // بررسی اینکه دانشجو قبلاً این درس را انتخاب نکرده باشد
                 if (!student.getLellonses.containsValue(chooseLesson)) {
-                    int unit = selectedKlass.getcountUnit(); // تعداد واحد درس
+                    int unit = selectedKlass.getcountUnit(); 
 
-                    // بررسی اینکه تعداد کل واحدها از 20 تجاوز نکند
                     if (totalUnit + unit < 20) {
                         student.getLellonses.put(searchName, chooseLesson);
-                        totalUnit += unit; // افزایش تعداد واحدها
+                        totalUnit += unit;
                         System.out.println("\t" + student.getfullName() + " Choose -> " + chooseLesson + " (Units: " + unit + ")");
                     } else {
                         System.out.println("\tTotal units exceed 20. You cannot choose this lesson.");
