@@ -80,7 +80,6 @@ public class Term {
             String chooseLesson = scanner.next();
 
 
-            // جستجوی ساده درس در لیست کلاس‌ها
             Klass selectedKlass = null;
             for (Klass klass : lessons) {
                 if (klass.getKlassName().equals(chooseLesson)) {
