@@ -50,7 +50,7 @@ public class Student {
         allStudents.add(this);
     }
 
-    // for show student and them lessons
+    // for show student and them lessons and units
     public void showStudent_Lessons (Term term , Student student , Klass klass){
 
         term.validStudent(student);
