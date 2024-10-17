@@ -23,6 +23,7 @@ public class Term {
     public int searchName;
     public ArrayList<String> classess = new ArrayList<>();
     public ArrayList<Integer> unitsLesson = new ArrayList<>();
+    public int totalUnit = 0;
 
 
     // for get and save information term*
@@ -65,11 +66,9 @@ public class Term {
     }
 
     // for get lesson by student
-//
-
     public void getlessons(Student student) {
+
         boolean again = true;
-        int totalUnit = 0;
 
         while (again) {
 
@@ -79,7 +78,7 @@ public class Term {
             System.out.print("\tChoose lessons : ");
             String chooseLesson = scanner.next();
 
-
+            // get selected klass*
             Klass selectedKlass = null;
             for (Klass klass : lessons) {
                 if (klass.getKlassName().equals(chooseLesson)) {
@@ -89,11 +88,12 @@ public class Term {
             }
 
             if (selectedKlass != null) {
-                if (!student.getLellonses.containsValue(chooseLesson)) {
-                    int unit = selectedKlass.getcountUnit(); 
+                if (!student.getLellonses.contains(chooseLesson)) {
+                    int unit = selectedKlass.getcountUnit();
 
-                    if (totalUnit + unit < 20) {
-                        student.getLellonses.put(searchName, chooseLesson);
+                    if ((totalUnit + unit) < 20) {
+                        student.getLellonses.add(chooseLesson);
+                        student.getunit.add(unit);
                         totalUnit += unit;
                         System.out.println("\t" + student.getfullName() + " Choose -> " + chooseLesson + " (Units: " + unit + ")");
                     } else {
@@ -136,6 +136,5 @@ public class Term {
         }
         return searchName;
     }
-
 }
 
