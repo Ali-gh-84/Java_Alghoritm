@@ -12,7 +12,8 @@ public class Student {
     private String lastName;
     private int id;
     public static ArrayList<Student> allStudents = new ArrayList<>();
-    public HashMap<Integer, String> getLellonses = new HashMap<>();
+    public ArrayList<String> getLellonses = new ArrayList<>();
+    public ArrayList<Integer> getunit = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     // for return id*
@@ -50,11 +51,11 @@ public class Student {
         allStudents.add(this);
     }
 
-    // for show student and them lessons and units
+    // for show student and them lessons
     public void showStudent_Lessons (Term term , Student student , Klass klass){
 
         term.validStudent(student);
 
-        System.out.println("\t -> " + getfullName() + " in year : " + term.getyear() + " in HalfYear : " + term.gethalfYear() + " in Classess : " + term.classess + " Count Units : " + term.unitsLesson + " Total Units In Term : " + term.totalUnit);
+        System.out.println("\t -> " + getfullName() + " in year : " + term.getyear() + " in HalfYear : " + term.gethalfYear() + " in Classess : " + getLellonses + " Count Units : " + getunit + " Total Units In Term : " + term.totalUnit); // term.clssess
     }
 }
