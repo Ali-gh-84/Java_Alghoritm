@@ -64,7 +64,7 @@ public class Term {
     public void getlessons(Student student) {
 
         boolean again = true;
-        public int totalUnit = 0;
+        int totalUnit = 0;
 
         while (again) {
 
