@@ -40,10 +40,9 @@ public class Klass {
 
     // for get and save lessons and classess*
     public void getInfoKlass() {
+
         System.out.print("\tEnter Name of Klass: ");
         klassName = scanner.next();
-
-//        classess.add(klassName);
 
         System.out.print("\tEnter Count of Unit of Klass: ");
         countUnit = scanner.nextInt();
@@ -61,5 +60,4 @@ public class Klass {
         klassDuration = scanner.nextInt();
 
     }
-
 }

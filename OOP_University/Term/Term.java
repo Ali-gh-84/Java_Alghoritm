@@ -8,14 +8,6 @@ import java.util.*;
 
 public class Term {
 
-    public int getyear() {
-        return year;
-    }
-
-    public int gethalfYear() {
-        return halfYear;
-    }
-
     private Scanner scanner = new Scanner(System.in);
     private int year;
     private int halfYear;
@@ -23,6 +15,8 @@ public class Term {
     public int searchName;
     public ArrayList<String> classess = new ArrayList<>();
     public ArrayList<Integer> unitsLesson = new ArrayList<>();
+    public ArrayList<Integer> yearLesson = new ArrayList<>();
+    public ArrayList<Integer> halfyearLesson = new ArrayList<>();
     public int totalUnit = 0;
 
 
@@ -45,6 +39,8 @@ public class Term {
             lessons.add(klass);
             classess.add(klass.getKlassName());
             unitsLesson.add(klass.getcountUnit());
+            yearLesson.add(year);
+            halfyearLesson.add(halfYear);
 
             System.out.println();
 
@@ -59,13 +55,13 @@ public class Term {
     // for show details term classess*
     public void klassTerms() {
 
-        System.out.println("\tClasses in this Term -> Year " + getyear() + " in Half Year " + gethalfYear() + " :");
+        System.out.println("\tClasses in this Term -> Year " + yearLesson + " in Half Year " + halfyearLesson + " :");
         for (Klass e : lessons) {
             System.out.println("\t -> " + e.getKlassName() + " untits : " + e.getcountUnit() + " in : " + e.getklassPlace() + " at : " + e.getklassDay() + " at : " + e.getklassClock() + " Duration : " + e.getklassDuration() + " min.");
         }
     }
 
-    // for get lesson by student
+    // for get lesson by student*
     public void getlessons(Student student) {
 
         boolean again = true;
