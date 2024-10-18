@@ -17,7 +17,6 @@ public class Term {
     public ArrayList<Integer> unitsLesson = new ArrayList<>();
     public ArrayList<Integer> yearLesson = new ArrayList<>();
     public ArrayList<Integer> halfyearLesson = new ArrayList<>();
-    public int totalUnit = 0;
 
 
     // for get and save information term*
@@ -65,6 +64,7 @@ public class Term {
     public void getlessons(Student student) {
 
         boolean again = true;
+        public int totalUnit = 0;
 
         while (again) {
 
